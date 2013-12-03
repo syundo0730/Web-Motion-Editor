@@ -1,9 +1,9 @@
 {
-    "name": "Moton Editor",
-    "version": "0.0.1",
+    "name": "Humanoid Robot Motion Editor",
+    "version": "0.0.2",
     "manifest_version": 2,
     "minimum_chrome_version": "23",
-    "description": "Motion editor for hobby viped robot.",
+    "description": "Motion editor for hobby humanoid robot.",
     
     "app": {
 	"background": {
