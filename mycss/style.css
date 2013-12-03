@@ -1,0 +1,23 @@
+body {
+    background:#ddd;
+    font-family: Georgia, 'Hiragino Mincho Pro', Meiryo, serif;
+    color:#000;
+    margin:20px auto;
+    text-align:center;
+    line-height:1.5em;
+    width:950px;
+}
+#sidebar {
+    width:200px;
+    height:700px;
+    background:#cccccc;
+    float:left;
+    }
+
+.slider {
+    margin:15px;
+    }
+
+#viewArea {
+    float:right;
+    }
