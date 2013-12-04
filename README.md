@@ -1,4 +1,6 @@
-Google-chrome-Motion-Editor
+Web-Motion-Editor
 ===========================
+ブラウザで使える2足歩行ロボットのためのモーションエディター．
 
-Chrome上で使える2足歩行ロボットのためのモーションエディター．
+jQueryUI
+Three.js
