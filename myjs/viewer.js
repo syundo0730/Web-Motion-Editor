@@ -13,27 +13,27 @@ $(function() {
 	var material = new THREE.MeshLambertMaterial({color:0x660000});
     var pmaterial = new THREE.MeshLambertMaterial({color:0x0096d6, side:THREE.DoubleSide});
 
-    var geometry = new THREE.CubeGeometry(50, 100, 50);
+    var geometry = new THREE.CubeGeometry(0.05, 0.05, 0.1);
 	var cubeMesh = new THREE.Mesh( geometry, material);
     cubeMesh.castShadow = true;
 
-    var geometry1 = new THREE.CubeGeometry(50, 100, 50);
+    var geometry1 = new THREE.CubeGeometry(0.05, 0.05, 0.1);
 	var cubeMesh1 = new THREE.Mesh( geometry1, material);
     cubeMesh1.castShadow = true;
 
-    var pgeometry = new THREE.PlaneGeometry(1000, 1000);
+    var pgeometry = new THREE.PlaneGeometry(10, 10);
     var plane = new THREE.Mesh( pgeometry, pmaterial);
     plane.receiveShadow = true;
     
     // --- position
     plane.position.set(0, 0, 0);
-    plane.rotation.x = Math.PI/2;
+    //plane.rotation.x = Math.PI/2;
     
-    parent.position.set(0, 300, 0);
+    parent.position.set(0, 0, 0.3);
     joint.position.set(0, 0, 0);//親から見た位置を指定する
-    cubeMesh.position.set(0, -50, 0);
-    joint1.position.set(0, -50, 0);
-    cubeMesh1.position.set(0, -50, 0);
+    cubeMesh.position.set(0, 0, -0.05);
+    joint1.position.set(0, 0, -0.05);
+    cubeMesh1.position.set(0, 0, -0.05);
 
     // ---parent-child
     scene.add(plane);
@@ -44,20 +44,21 @@ $(function() {
     joint1.add(cubeMesh1);
 
     // --Light
-	var directionalLight = new THREE.DirectionalLight(0xffffff, 3);
+	var directionalLight = new THREE.DirectionalLight(0xffffff, 2);
     directionalLight.castShadow = true;
-	directionalLight.position.set(10, 500, 10);
+	directionalLight.position.set(0.5, 0.5, 1);
 	scene.add(directionalLight);
     var ambient = new THREE.AmbientLight(0x550000);
     scene.add(ambient);
     
     // -Camera
-    var camera = new THREE.PerspectiveCamera( 80, width/height, 1, 1000 );
-	camera.position.set(200, 100, 500);
+    var camera = new THREE.PerspectiveCamera( 80, width/height, 0.001, 40);
+    camera.up.set(0, 0, 1);
+	camera.position.set(0.5, 0.5, 0.5);
     camera.lookAt(parent.position);
 
     // helper
-    var axis = new THREE.AxisHelper(1000);
+    var axis = new THREE.AxisHelper(1);
     axis.position.set(0, 0, 0);
     scene.add(axis);
 
@@ -71,12 +72,13 @@ $(function() {
 
     // Camera control
     //これを追加するだけでマウスによるインタラクティブな操作が実現する
-    var controls = new THREE.OrbitControls(camera, renderer.domElement);
+     //var controls = new THREE.OrbitControls(camera, renderer.domElement);
+    var controls = new THREE.TrackballControls(camera, renderer.domElement);
 
 	function render(){
         requestAnimationFrame(render);
-        joint.rotation.z = jointpos;
-        joint1.rotation.z = jointpos;
+        joint.rotation.x = jointpos;
+        joint1.rotation.x = jointpos;
 	    renderer.render( scene, camera );
         controls.update();
 	};
