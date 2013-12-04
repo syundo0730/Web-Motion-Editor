@@ -44,15 +44,23 @@ $(function() {
     joint1.add(cubeMesh1);
 
     // --Light
+    var spotLight = new THREE.SpotLight(0xffffff, 1);
+    spotLight.castShadow = true;
+    spotLight.position.set(0.5, 0.5, 1);
+    //spotLight.shadowCameraVisible = true;
+    spotLight.shadowCameraNear = 0.1;
+    spotLight.shadowCameraFar = 3;
+	scene.add(spotLight);
+    
 	var directionalLight = new THREE.DirectionalLight(0xffffff, 2);
-    directionalLight.castShadow = true;
 	directionalLight.position.set(0.5, 0.5, 1);
 	scene.add(directionalLight);
+    
     var ambient = new THREE.AmbientLight(0x550000);
     scene.add(ambient);
     
     // -Camera
-    var camera = new THREE.PerspectiveCamera( 80, width/height, 0.001, 40);
+    var camera = new THREE.PerspectiveCamera( 80, width/height);
     camera.up.set(0, 0, 1);
 	camera.position.set(0.5, 0.5, 0.5);
     camera.lookAt(parent.position);
