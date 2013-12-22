@@ -46,12 +46,12 @@ $(function() {
     headgeometry = new THREE.CubeGeometry(0.04, 0.04, 0.04);
     headMesh = new THREE.Mesh( headgeometry, material);
     headMesh.castShadow = true;
-    headMesh.position.set(0, 0, 0.06);
+    headMesh.position.set(0, 0, 0.04);
 
     bodygeometry = new THREE.CubeGeometry(0.04, 0.1, 0.18);
     bodyMesh = new THREE.Mesh( bodygeometry, material);
     bodyMesh.castShadow = true;
-    bodyMesh.position.set(0, 0, 0.11);
+    bodyMesh.position.set(0, 0, 0.09);
     
     var joint = [],
     jointpos = [];
@@ -70,15 +70,15 @@ $(function() {
     jointpos[10] = [0, 0, -0.045];
     jointpos[11] = [0, 0, 0];
 
-    jointpos[12] = [0, 0.08, 0.2];//L arm
+    jointpos[12] = [0, 0.08, 0.09];//L arm
     jointpos[13] = [0, 0, 0];
     jointpos[14] = [0, 0, -0.045];
 
-    jointpos[15] = [0, -0.08, 0.2];//L arm
+    jointpos[15] = [0, -0.08, 0.09];//R arm
     jointpos[16] = [0, 0, 0];
     jointpos[17] = [0, 0, -0.045];
 
-    jointpos[18] = [0, 0, 0.2];//neck
+    jointpos[18] = [0, 0, 0.09];//neck
 
     for(i = 0; i < 19; i++) {
         joint[i] = new THREE.Object3D();
@@ -110,23 +110,23 @@ $(function() {
     joint[10].add(joint[11]);
     joint[11].add(footMesh[1]);
 
-    parent.add(joint[12]);//L arm
+    parent.add(bodyMesh);
+
+    bodyMesh.add(joint[12]);//L arm
     joint[12].add(joint[13]);
     joint[13].add(armMesh[0]);
     armMesh[0].add(joint[14]);
     joint[14].add(armMesh[1]);
 
-    parent.add(joint[15]);//L arm
+    bodyMesh.add(joint[15]);//L arm
     joint[15].add(joint[16]);
     joint[16].add(armMesh[2]);
     armMesh[2].add(joint[17]);
     joint[17].add(armMesh[3]);
 
-    parent.add(joint[18]);
+    bodyMesh.add(joint[18]);
     joint[18].add(headMesh);
 
-    parent.add(bodyMesh);
-    
     // --Light
     var spotLight = new THREE.SpotLight(0xffffff, 1);
     spotLight.castShadow = true;

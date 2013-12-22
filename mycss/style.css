@@ -5,19 +5,44 @@ body {
     margin:20px auto;
     text-align:center;
     line-height:1.5em;
-    width:950px;
+    width:910px;
 }
 #sidebar {
     width:200px;
     height:700px;
-    background:#cccccc;
+    background:#ccc;
+    -webkit-border-radius:10px;
     float:left;
-    }
-
-.slider {
-    margin:15px;
     }
 
 #viewArea {
     float:right;
-    }
+}
+
+.slidebox {
+    width:190px;
+    height:26px;
+    background:#aaa;
+    -webkit-border-radius:5px;
+    margin:3px;
+}
+
+.slidebox label{
+    width:20px;
+    margin-right:10px;
+    float:left;
+}
+
+.slidebox .slider{
+    width:120px;
+    margin:5px;
+    float:left;
+}
+
+.slidebox .amount{
+    width:20px;
+    margin:1px;
+    float:right;
+}
+
+
