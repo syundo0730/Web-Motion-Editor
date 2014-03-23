@@ -172,30 +172,35 @@ $(function() {
         controls.update();//視点更新
 	};
 	render();
-
+       
     function setjoint(){
-        joint[0].rotation.z = sliderpos[0];
-        joint[1].rotation.x = sliderpos[1];
-        joint[2].rotation.y = sliderpos[2];
-        joint[3].rotation.y = sliderpos[3];
-        joint[4].rotation.y = sliderpos[4];
-        joint[5].rotation.x = sliderpos[5];
+        pose = [];
+        for (var i = 0; i < SERVO_AMOUNT; i++) {
+                pose[i] = (sliderpos[i] - homepos[i])*Math.PI/1800;
+        }
+ 
+        joint[0].rotation.z = pose[0];
+        joint[1].rotation.x = pose[1];
+        joint[2].rotation.y = pose[2];
+        joint[3].rotation.y = pose[3];
+        joint[4].rotation.y = pose[4];
+        joint[5].rotation.x = pose[5];
         
-        joint[6].rotation.z = sliderpos[6];
-        joint[7].rotation.x = sliderpos[7];
-        joint[8].rotation.y = sliderpos[8];
-        joint[9].rotation.y = sliderpos[9];
-        joint[10].rotation.y = sliderpos[10];
-        joint[11].rotation.x = sliderpos[11];
+        joint[6].rotation.z = pose[6];
+        joint[7].rotation.x = pose[7];
+        joint[8].rotation.y = pose[8];
+        joint[9].rotation.y = pose[9];
+        joint[10].rotation.y = pose[10];
+        joint[11].rotation.x = pose[11];
         
-        joint[12].rotation.x = sliderpos[12];
-        joint[13].rotation.y = sliderpos[13];
-        joint[14].rotation.y = sliderpos[14];
+        joint[12].rotation.x = pose[12];
+        joint[13].rotation.y = pose[13];
+        joint[14].rotation.y = pose[14];
         
-        joint[15].rotation.x = sliderpos[15];
-        joint[16].rotation.y = sliderpos[16];
-        joint[17].rotation.y = sliderpos[17];
+        joint[15].rotation.x = pose[15];
+        joint[16].rotation.y = pose[16];
+        joint[17].rotation.y = pose[17];
         
-        joint[18].rotation.z = sliderpos[18];
+        joint[18].rotation.z = pose[18];
     }
 });

@@ -1,28 +1,59 @@
 <!DOCTYPE html>
+<html lang="ja">
 <head>
   <meta charset="utf-8">
   <title>MotionEditor</title>
-  <script src="js/jquery-1.9.1.js"></script>
-  <script src="js/jquery-ui-1.10.3.custom.js"></script>
-  <script src="js/three.min.js"></script>
-  <script src="js/controls/TrackballControls.js"></script>
+  <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+  <script type="text/javascript" src="js/jquery-ui-1.10.3.custom.min.js"></script>
+  <script type="text/javascript" src="js/jquery.cookie.js"></script>
+  <script type="text/javascript" src="js/three.min.js"></script>
+  <script type="text/javascript" src="js/controls/TrackballControls.js"></script>
   
-  <script src="myjs/viewer.js"></script>
-  <script src="myjs/form.js"></script>
-  <!-- <script type="text/javascript" src="myjs/ivents.js"></script> -->
-  <!-- <script type="text/javascript" src="myjs/motion.js"></script> -->
+  <script type="text/javascript" src="myjs/viewer.js"></script>
+  <script type="text/javascript" src="myjs/form.js"></script>
+  <script type="text/javascript" src="myjs/getmotions.js"></script>
+  <script type="text/javascript" src="myjs/setmotions.js"></script>
+  <script type="text/javascript" src="myjs/motion.js"></script>
+  <script type="text/javascript" src="myjs/offset_cookie.js"></script>
+  <script type="text/javascript" src="myjs/saveImg.js"></script>
+
   <!-- <script type="text/javascript" src="myjs/file.js"></script> -->
   <!-- <script type="text/javascript" src="myjs/serial.js"></script> -->
   <!-- <script type="text/javascript" src="myjs/websocket.js"></script> -->
-  
+  <!-- <script type="text/javascript" src="myjs/ivents.js"></script> -->
+
+  <link href="css/smoothness/jquery-ui-1.10.3.custom.css" rel="stylesheet">  
   <link href="mycss/style.css" rel="stylesheet">
-  <link href="css/smoothness/jquery-ui-1.10.3.custom.css" rel="stylesheet">
 
 </head>
 <body>
-  
-  <div id="sidebar"></div>
-  <div id="viewArea"></div>
+
+  <div id="tabs">
+    
+    <ul>
+      <li><a href="#viewArea">View</a></li>
+      <li><a href="#motionArea">Motion</a></li>
+    </ul>
+
+    <div id="viewArea">
+      <div id="sidebar">
+        <button id="setPoseButton">ADDPOSE</button>
+        <!-- <button id="saveImageButton">SAVE</button> -->
+      </div>      
+    </div>
+    <div id="motionArea">
+      <table id="motionData"></table>
+    </div>
+    
+  </div>
+
+  <script>
+    $(function() {
+     $('#tabs').tabs({
+       active:1
+     });
+   });
+  </script>
   
 </body>
 </html>

@@ -1,27 +1,48 @@
 body {
-    background:#ddd;
     font-family: Georgia, 'Hiragino Mincho Pro', Meiryo, serif;
     color:#000;
     margin:20px auto;
     text-align:center;
     line-height:1.5em;
-    width:910px;
+    width:1000px;
 }
-#sidebar {
-    width:200px;
-    height:700px;
-    background:#ccc;
-    -webkit-border-radius:10px;
+
+#motionArea {
+    margin:20px auto;
     float:left;
-    }
+}
+
+#motionData {
+    border-spacing: 0px 5px;
+}
+
+#motionData td {
+    padding:1px 2px;
+}
+
+#motionData tr {
+    background:#ccc;
+}
+
+#sidebar {
+    width:206px;
+    height:700px;
+    margin:10px auto;
+    /* background:#ccc; */
+    -webkit-border-radius:10px;
+    position:absolute;
+    left:0;
+    top:0;
+}
 
 #viewArea {
-    float:right;
+    position:relative;
 }
 
+
 .slidebox {
-    width:190px;
-    height:26px;
+    width:200px;
+    height:30px;
     background:#aaa;
     -webkit-border-radius:5px;
     margin:3px;
@@ -29,20 +50,20 @@ body {
 
 .slidebox label{
     width:20px;
-    margin-right:10px;
+    margin-right:5px;
+    margin-left:5px;
     float:left;
 }
 
 .slidebox .slider{
-    width:120px;
-    margin:5px;
+    width:100px;
+    margin:6px;
     float:left;
 }
 
 .slidebox .amount{
-    width:20px;
-    margin:1px;
+    width:40px;
+    height:20px;
+    margin:2px;
     float:right;
 }
-
-
